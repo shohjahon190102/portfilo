@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoxjahon Satimboyev | Frontend Developer</title>
+  <meta name="description" content="Satimboyev Shoxjahon - Frontend Developer. Zamonaviy web sahifalar, HTML, CSS, JavaScript va React bo'yicha mutaxassis.">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Space Grotesk', monospace;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    /* Header - Dark Theme */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .navmenu ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .navmenu a {
+      text-decoration: none;
+      color: #a1a1aa;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .navmenu a:hover, .navmenu a.active {
+      color: #8b5cf6;
+    }
+
+    .header-social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .header-social-links a {
+      color: #a1a1aa;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+
+    .header-social-links a:hover {
+      color: #8b5cf6;
+      transform: translateY(-2px);
+    }
+
+    .mobile-nav-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    /* Hero Section - Dark Theme with floating cards like screenshot */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      background: #0a0a0a;
+    }
+
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-content .highlight {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-content h2 {
+      font-size: 1.8rem;
+      color: #8b5cf6;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .hero-content p {
+      color: #a1a1aa;
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      color: #fff;
+    }
+
+    .btn-outline:hover {
+      border-color: #8b5cf6;
+      color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.05);
+    }
+
+    .hero-image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .image-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .image-wrapper img {
+      max-width: 380px;
+      border-radius: 50% 40% 55% 45% / 45% 50% 50% 55%;
+      box-shadow: 0 25px 45px -12px rgba(99, 102, 241, 0.3);
+      transition: transform 0.4s;
+      border: 2px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .image-wrapper img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Floating Elements - like screenshot */
+    .floating-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .floating-card {
+      position: absolute;
+      background: rgba(20, 20, 30, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 10px 20px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #fff;
+    }
+
+    .floating-card i {
+      font-size: 1.1rem;
+    }
+
+    .floating-card.design {
+      top: 10%;
+      left: -30px;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.1));
+    }
+
+    .floating-card.design i {
+      color: #6366f1;
+    }
+
+    .floating-card.code {
+      bottom: 25%;
+      right: -40px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.1));
+    }
+
+    .floating-card.code i {
+      color: #8b5cf6;
+    }
+
+    .floating-card.creativity {
+      bottom: 5%;
+      left: -20px;
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(99, 102, 241, 0.1));
+    }
+
+    .floating-card.creativity i {
+      color: #ec4899;
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .social-links a {
+      color: #a1a1aa;
+      font-size: 1.2rem;
+      transition: all 0.2s;
+    }
+
+    .social-links a:hover {
+      color: #8b5cf6;
+      transform: translateY(-3px);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #a1a1aa;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    /* About Section - Dark */
+    .about {
+      background: #0f0f0f;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .about .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-content .eyebrow {
+      color: #8b5cf6;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .about-content h3 {
+      font-size: 2rem;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid rgba(139, 92, 246, 0.1);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(139, 92, 246, 0.3);
+      background: rgba(139, 92, 246, 0.05);
+    }
+
+    .stat-card h2 {
+      font-size: 2rem;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-item {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 24px;
+      text-align: center;
+      border: 1px solid rgba(139, 92, 246, 0.1);
+      transition: all 0.3s;
+    }
+
+    .skill-item:hover {
+      border-color: rgba(139, 92, 246, 0.4);
+      transform: translateY(-5px);
+      background: rgba(139, 92, 246, 0.05);
+    }
+
+    .skill-item i {
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .skill-item h3 {
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .skill-item p {
+      font-size: 0.85rem;
+      color: #a1a1aa;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(139, 92, 246, 0.1);
+      transition: all 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(139, 92, 246, 0.3);
+      box-shadow: 0 20px 35px -12px rgba(99, 102, 241, 0.2);
+    }
+
+    .project-img {
+      height: 220px;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8b5cf6;
+      font-size: 3rem;
+    }
+
+    .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-info h3 {
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .project-info p {
+      color: #a1a1aa;
+      font-size: 0.9rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .project-tags span {
+      background: rgba(139, 92, 246, 0.15);
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #8b5cf6;
+    }
+
+    /* Timeline */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .timeline-item {
+      text-align: center;
+      position: relative;
+    }
+
+    .timeline-item .dot {
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+    }
+
+    .timeline-item time {
+      color: #8b5cf6;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .timeline-item h4 {
+      margin: 0.5rem 0;
+    }
+
+    .timeline-item p {
+      color: #a1a1aa;
+      font-size: 0.85rem;
+    }
+
+    /* Quote */
+    .personal-quote {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #cbd5e1;
+      border-top: 1px solid rgba(139, 92, 246, 0.2);
+      border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+      margin: 2rem 0;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 28px;
+      border: 1px solid rgba(139, 92, 246, 0.1);
+    }
+
+    .contact-info h3 {
+      margin-bottom: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .contact-item i {
+      font-size: 1.3rem;
+      color: #8b5cf6;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      font-family: inherit;
+      color: #fff;
+      transition: all 0.2s;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #71717a;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.05);
+    }
+
+    /* Footer */
+    .footer {
+      padding: 2rem 0;
+      text-align: center;
+      border-top: 1px solid rgba(139, 92, 246, 0.1);
+      color: #a1a1aa;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .container {
+        padding: 0 24px;
+      }
+      .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .social-links {
+        justify-content: center;
+      }
+      .about .row {
+        grid-template-columns: 1fr;
+      }
+      .timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .floating-card {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navmenu ul {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        background: #0a0a0a;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        transition: left 0.3s;
+        text-align: center;
+        border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+      }
+      .navmenu ul.active {
+        left: 0;
+      }
+      .mobile-nav-toggle {
+        display: block;
+      }
+      .header-social-links {
+        display: none;
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .timeline-grid {
+        grid-template-columns: 1fr;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    [data-aos] {
+      pointer-events: none;
+    }
+    [data-aos].aos-animate {
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+
+<header id="header" class="header">
+  <div class="container">
+    <a href="#" class="logo">Shox<span>Dev</span></a>
+    
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <i class="mobile-nav-toggle bi bi-list"></i>
+    </nav>
+
+    <div class="header-social-links">
+      <a href="#"><i class="bi bi-twitter-x"></i></a>
+      <a href="#"><i class="bi bi-instagram"></i></a>
+      <a href="#"><i class="bi bi-linkedin"></i></a>
+      <a href="#"><i class="bi bi-github"></i></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Section - Dark theme with floating cards like screenshot -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content" data-aos="fade-right">
+        <h1>Hello, I'm <span class="highlight">Satimboyev Shoxjahon</span></h1>
+        <h2>Creative <span id="typed"></span></h2>
+        <p>Zamonaviy web sahifalar yarataman. HTML, CSS, JavaScript va React bo'yicha mutaxassis. Sizning loyihangizni yuqori darajada kodlab, responsive va interaktiv qilaman.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View My Work <i class="bi bi-arrow-up-right"></i></a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="bi bi-twitter"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+          <a href="#"><i class="bi bi-github"></i></a>
+          <a href="#"><i class="bi bi-telegram"></i></a>
+        </div>
+      </div>
+      <div class="hero-image" data-aos="zoom-in">
+        <div class="image-wrapper">
+          <img src="https://ui-avatars.com/api/?background=1a1a2e&color=8b5cf6&rounded=true&size=350&bold=true&name=Shoxjahon+S" alt="Shoxjahon Satimboyev">
+          <div class="floating-elements">
+            <div class="floating-card design" data-aos="fade-left" data-aos-delay="600">
+              <i class="bi bi-palette"></i>
+              <span>Design</span>
+            </div>
+            <div class="floating-card code" data-aos="fade-right" data-aos-delay="700">
+              <i class="bi bi-code-slash"></i>
+              <span>Code</span>
+            </div>
+            <div class="floating-card creativity" data-aos="fade-up" data-aos-delay="800">
+              <i class="bi bi-lightbulb"></i>
+              <span>Ideas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>About</h2>
+        <p class="section-subtitle">Men haqimda qisqacha</p>
+      </div>
+      <div class="row">
+        <div class="about-content" data-aos="fade-right">
+          <span class="eyebrow">Hello there</span>
+          <h3>Men Shoxjahon - kreativ frontend dasturchi</h3>
+          <p>HTML, CSS, JavaScript va zamonaviy frameworklarni mukammal bilaman. 3+ yillik tajribamda 15 dan ortiq muvaffaqiyatli loyihalarni amalga oshirganman. Har bir loyihaga kreativ yondashib, mijoz talablarini to'liq qondirishga harakat qilaman.</p>
+          <p>Korporativ saytlardan tortib, interaktiv web ilovalargacha — sizning loyihangizni yuqori darajada tayyorlab beraman. Responsive dizayn, zamonaviy animatsiyalar va qulay foydalanuvchi interfeysi kafolatlanadi.</p>
+        </div>
+        <div class="about-stats" data-aos="fade-left">
+          <div class="stat-card">
+            <h2>15+</h2>
+            <p>Bajarilgan loyiha</p>
+          </div>
+          <div class="stat-card">
+            <h2>100%</h2>
+            <p>Mijozlar mamnuniyati</p>
+          </div>
+          <div class="stat-card">
+            <h2>24/7</h2>
+            <p>Qo'llab-quvvatlash</p>
+          </div>
+          <div class="stat-card">
+            <h2>5★</h2>
+            <p>Rating</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Journey Timeline -->
+      <div class="timeline-grid" style="margin-top: 4rem;">
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="dot"></div>
+          <time>2022</time>
+          <h4>Frontend boshlanish</h4>
+          <p>Web dasturlashni o'rganish</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="dot"></div>
+          <time>2023</time>
+          <h4>Freelance Start</h4>
+          <p>Birinchi mustaqil loyihalar</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="dot"></div>
+          <time>2024</time>
+          <h4>React mutaxassis</h4>
+          <p>Dinamik ilovalar yaratish</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="dot"></div>
+          <time>2025</time>
+          <h4>Senior Frontend</h4>
+          <p>Murakkab loyihalar yetakchisi</p>
+        </div>
+      </div>
+
+      <blockquote class="personal-quote" data-aos="fade-down">
+        <p>"Zamonaviy va sifatli kod yozish — mening asosiy tamoyilim"</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Skills</h2>
+        <p class="section-subtitle">Texnologiyalar va ko'nikmalar</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
+          <i class="bi bi-filetype-html"></i>
+          <h3>HTML5</h3>
+          <p>Semantik va SEO-optimizatsiya</p>
+        </div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="150">
+          <i class="bi bi-filetype-css"></i>
+          <h3>CSS3 / SCSS</h3>
+          <p>Flex, Grid, Animations</p>
+        </div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+          <i class="bi bi-filetype-js"></i>
+          <h3>JavaScript</h3>
+          <p>ES6+, DOM, APIs</p>
+        </div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="250">
+          <i class="bi bi-bootstrap-fill"></i>
+          <h3>Bootstrap / Tailwind</h3>
+          <p>Responsive dizayn</p>
+        </div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+          <i class="bi bi-git"></i>
+          <h3>Git & Github</h3>
+          <p>Versiya boshqaruvi</p>
+        </div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="350">
+          <i class="bi bi-figma"></i>
+          <h3>Figma</h3>
+          <p>Dizayndan kodga</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Portfolio</h2>
+        <p class="section-subtitle">Eng so'nggi loyihalarim</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-img"><i class="bi bi-building"></i></div>
+          <div class="project-info">
+            <h3>Zamonaviy Korporativ Sayt</h3>
+            <p>Full responsive, zamonaviy dizayn va optimallashtirilgan kod</p>
+            <div class="project-tags"><span>HTML5</span><span>CSS3</span><span>JS</span></div>
+          </div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="project-img"><i class="bi bi-cart4"></i></div>
+          <div class="project-info">
+            <h3>E-commerce Platform</h3>
+            <p>Mahsulotlar katalogi, interaktiv dizayn</p>
+            <div class="project-tags"><span>React</span><span>Tailwind</span></div>
+          </div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-img"><i class="bi bi-cloud-sun"></i></div>
+          <div class="project-info">
+            <h3>Ob-havo Ilovasi</h3>
+            <p>Real vaqtda ob-havo ma'lumoti</p>
+            <div class="project-tags"><span>API</span><span>JavaScript</span></div>
+          </div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="project-img"><i class="bi bi-phone"></i></div>
+          <div class="project-info">
+            <h3>Mobile First Landing</h3>
+            <p>Startup uchun zamonaviy landing</p>
+            <div class="project-tags"><span>Mobile-first</span><span>Flexbox</span></div>
+          </div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-img"><i class="bi bi-journal-bookmark-fill"></i></div>
+          <div class="project-info">
+            <h3>Blog Platformasi</h3>
+            <p>Dinamik blog, dark mode bilan</p>
+            <div class="project-tags"><span>HTML5</span><span>LocalStorage</span></div>
+          </div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="350">
+          <div class="project-img"><i class="bi bi-grid"></i></div>
+          <div class="project-info">
+            <h3>Dashboard UI</h3>
+            <p>Admin panel va ma'lumotlar vizualizatsiyasi</p>
+            <div class="project-tags"><span>Chart.js</span><span>CSS Grid</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p class="section-subtitle">Bog'lanish va loyiha takliflari</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info" data-aos="fade-right">
+          <h3>Keling, birgalikda ishlaymiz!</h3>
+          <p>Loyihangizni muhokama qilish yoki savollaringiz bo'lsa, men bilan bog'lanishingiz mumkin.</p>
+          <div class="contact-item">
+            <i class="bi bi-envelope"></i>
+            <div><strong>Email</strong><br>shoxjahon.satimboyev@dev.uz</div>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-telegram"></i>
+            <div><strong>Telegram</strong><br>@shoxjahon_dev</div>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-geo-alt"></i>
+            <div><strong>Manzil</strong><br>Toshkent, O'zbekiston</div>
+          </div>
+        </div>
+        <div class="contact-form" data-aos="fade-left">
+          <form id="contactForm">
+            <input type="text" placeholder="Sizning ismingiz" required>
+            <input type="email" placeholder="Email manzilingiz" required>
+            <input type="text" placeholder="Mavzu">
+            <textarea rows="4" placeholder="Xabaringizni yozing..." required></textarea>
+            <button type="submit" class="btn btn-primary" style="width:100%">Xabar yuborish <i class="bi bi-send"></i></button>
+          </form>
+          <p style="font-size:0.75rem; margin-top:1rem; color:#71717a;">* Xabaringiz qabul qilinadi va tez orada javob beraman</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2025 Satimboyev Shoxjahon — Barcha huquqlar himoyalangan</p>
+    <div style="margin-top: 0.5rem;">
+      <a href="#" style="color:#a1a1aa; margin:0 0.5rem; text-decoration:none;">GitHub</a>
+      <a href="#" style="color:#a1a1aa; margin:0 0.5rem; text-decoration:none;">LinkedIn</a>
+      <a href="#" style="color:#a1a1aa; margin:0 0.5rem; text-decoration:none;">Telegram</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+  AOS.init({ duration: 800, once: true, offset: 50 });
+
+  new Typed('#typed', {
+    strings: ['Frontend Developer', 'Web Designer', 'React Specialist', 'UI/UX Enthusiast'],
+    typeSpeed: 60,
+    backSpeed: 40,
+    loop: true,
+    showCursor: false
+  });
+
+  // Mobile menu
+  const mobileToggle = document.querySelector('.mobile-nav-toggle');
+  const navMenu = document.querySelector('.navmenu ul');
+  mobileToggle?.addEventListener('click', () => {
+    navMenu?.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.navmenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu?.classList.remove('active');
+    });
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Active nav highlight
+  window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    let scrollPos = window.scrollY + 100;
+    sections.forEach(section => {
+      const id = section.getAttribute('id');
+      if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+        document.querySelectorAll('.navmenu a').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  });
+
+  // Form submission
+  document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Rahmat! Xabaringiz qabul qilindi. Tez orada javob beraman.');
+    e.target.reset();
+  });
+</script>
+</body>
+</html>
